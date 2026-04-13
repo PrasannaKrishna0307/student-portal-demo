@@ -11,9 +11,14 @@ frontend/dist-ssr
 frontend/*.local
 
 
+# Sensitive / credentials
 backend.pem
 CLI_accessKeys.csv
+
+# Docs (optional ignore)
 COMPLETE_LEARNING_GUIDE.txt
 QUICK_START.md
 README.md
+
+# Scripts
 START.bat
