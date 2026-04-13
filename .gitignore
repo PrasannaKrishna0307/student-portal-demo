@@ -1,0 +1,19 @@
+# Backend
+backend/node_modules
+backend/*.log
+
+# Frontend
+frontend/node_modules
+frontend/dist
+frontend/.env.local
+frontend/.env.*.local
+frontend/dist-ssr
+frontend/*.local
+
+
+backend.pem
+CLI_accessKeys.csv
+COMPLETE_LEARNING_GUIDE.txt
+QUICK_START.md
+README.md
+START.bat

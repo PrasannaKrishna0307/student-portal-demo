@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login/Register Page -->
+        <div id="auth-page" class="auth-container">
+            <div class="auth-box">
+                <h1>📚 Student Portal</h1>
+                <p id="auth-subtitle">Sign in to your account</p>
+                
+                <div id="error-message" class="error-message" style="display: none;"></div>
+                
+                <form id="auth-form" onsubmit="handleAuth(event)">
+                    <div id="register-fields" style="display: none;">
+                        <input type="text" id="reg-name" placeholder="Full Name">
+                        <input type="text" id="reg-number" placeholder="Registration Number">
+                    </div>
+                    
+                    <input type="email" id="auth-email" placeholder="Email" required>
+                    <input type="password" id="auth-password" placeholder="Password" required>
+                    
+                    <button type="submit" id="auth-btn">Sign In</button>
+                </form>
+                
+                <p class="toggle-auth">
+                    <span id="toggle-text">Don't have an account?</span>
+                    <button type="button" onclick="toggleAuthMode()">Register</button>
+                </p>
+            </div>
+        </div>
+
+        <!-- Main App (Hidden initially) -->
+        <div id="main-app" style="display: none;">
+            <!-- Navigation -->
+            <nav class="navbar">
+                <div class="nav-container">
+                    <h2>📚 Student Portal</h2>
+                    <div class="nav-right">
+                        <span id="nav-username"></span>
+                        <a href="#" onclick="goToProfile()">Profile</a>
+                        <button onclick="logout()" class="logout-btn">Logout</button>
+                    </div>
+                </div>
+                <div class="nav-menu">
+                    <button onclick="showPage('dashboard')" class="nav-link active">Dashboard</button>
+                    <button onclick="showPage('attendance')" class="nav-link">Attendance</button>
+                    <button onclick="showPage('marks')" class="nav-link">Exam Marks</button>
+                    <button onclick="showPage('notes')" class="nav-link">Materials</button>
+                    <button onclick="showPage('circulars')" class="nav-link">Circulars</button>
+                    <button onclick="showPage('fees')" class="nav-link">Fees</button>
+                </div>
+            </nav>
+
+            <!-- Content -->
+            <div class="container">
+                <!-- Dashboard Page -->
+                <div id="dashboard-page" class="page active">
+                    <h1>Dashboard</h1>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>📊 Attendance</h3>
+                            <p id="stat-attendance">0%</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>📈 Grades</h3>
+                            <p id="stat-grades">-</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>💰 Fees Due</h3>
+                            <p id="stat-fees">₹0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>📢 Circulars</h3>
+                            <p id="stat-circulars">0</p>
+                        </div>
+                    </div>
+                    <div class="welcome-text">
+                        <p>Welcome to your Student Portal. Use the navigation menu above to access your academic information.</p>
+                    </div>
+                </div>
+
+                <!-- Attendance Page -->
+                <div id="attendance-page" class="page">
+                    <h1>Attendance</h1>
+                    <div class="attendance-summary">
+                        <p>Total Classes: <strong id="att-total">0</strong></p>
+                        <p>Present: <strong id="att-present">0</strong></p>
+                        <p>Absent: <strong id="att-absent">0</strong></p>
+                        <p>Percentage: <strong id="att-percentage">0%</strong></p>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Subject</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendance-list"></tbody>
+                    </table>
+                </div>
+
+                <!-- Exam Marks Page -->
+                <div id="marks-page" class="page">
+                    <h1>Exam Marks</h1>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Exam Type</th>
+                                <th>Marks</th>
+                                <th>Total</th>
+                                <th>Grade</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="marks-list"></tbody>
+                    </table>
+                </div>
+
+                <!-- Notes Page -->
+                <div id="notes-page" class="page">
+                    <h1>Study Materials</h1>
+                    <div id="notes-grid" class="notes-grid"></div>
+                </div>
+
+                <!-- Circulars Page -->
+                <div id="circulars-page" class="page">
+                    <h1>College Circulars</h1>
+                    <div id="circulars-list" class="circulars-list"></div>
+                </div>
+
+                <!-- Fees Page -->
+                <div id="fees-page" class="page">
+                    <h1>Fee Payment</h1>
+                    <div class="fee-summary">
+                        <p>Total Due: <strong id="fee-due">₹0</strong></p>
+                        <p>Total Paid: <strong id="fee-paid">₹0</strong></p>
+                        <p>Pending: <strong id="fee-pending">0</strong></p>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Due Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fees-list"></tbody>
+                    </table>
+                </div>
+
+                <!-- Profile Page -->
+                <div id="profile-page" class="page">
+                    <h1>My Profile</h1>
+                    <div class="profile-card">
+                        <div class="profile-avatar" id="profile-avatar"></div>
+                        <div class="profile-info">
+                            <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                            <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                            <p><strong>Registration:</strong> <span id="profile-reg"></span></p>
+                            <p><strong>Course:</strong> <span id="profile-course"></span></p>
+                            <p><strong>Semester:</strong> <span id="profile-semester"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
