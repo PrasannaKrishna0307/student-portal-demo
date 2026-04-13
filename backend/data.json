@@ -1,0 +1,180 @@
+{
+  "students": [
+    {
+      "id": "1000001",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "password123",
+      "registrationNumber": "CSE001",
+      "course": "B.Tech",
+      "semester": 4,
+      "joinDate": "01/01/2022"
+    },
+    {
+      "id": "1000002",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "password": "password123",
+      "registrationNumber": "CSE002",
+      "course": "B.Tech",
+      "semester": 4,
+      "joinDate": "01/01/2022"
+    }
+  ],
+  "attendance": [
+    {
+      "id": "att001",
+      "studentId": "1000001",
+      "date": "2024-01-15",
+      "subject": "Data Structures",
+      "status": "present"
+    },
+    {
+      "id": "att002",
+      "studentId": "1000001",
+      "date": "2024-01-14",
+      "subject": "Database Systems",
+      "status": "present"
+    },
+    {
+      "id": "att003",
+      "studentId": "1000001",
+      "date": "2024-01-13",
+      "subject": "Web Development",
+      "status": "absent"
+    },
+    {
+      "id": "att004",
+      "studentId": "1000001",
+      "date": "2024-01-12",
+      "subject": "Data Structures",
+      "status": "present"
+    },
+    {
+      "id": "att005",
+      "studentId": "1000001",
+      "date": "2024-01-11",
+      "subject": "Database Systems",
+      "status": "present"
+    }
+  ],
+  "examMarks": [
+    {
+      "id": "mark001",
+      "studentId": "1000001",
+      "subject": "Data Structures",
+      "examType": "Mid-Term",
+      "marksObtained": 42,
+      "totalMarks": 50,
+      "grade": "A",
+      "date": "2024-01-10"
+    },
+    {
+      "id": "mark002",
+      "studentId": "1000001",
+      "subject": "Database Systems",
+      "examType": "Quiz",
+      "marksObtained": 18,
+      "totalMarks": 20,
+      "grade": "A+",
+      "date": "2024-01-09"
+    },
+    {
+      "id": "mark003",
+      "studentId": "1000001",
+      "subject": "Web Development",
+      "examType": "Assignment",
+      "marksObtained": 38,
+      "totalMarks": 40,
+      "grade": "A",
+      "date": "2024-01-08"
+    }
+  ],
+  "notes": [
+    {
+      "id": "note001",
+      "studentId": "1000001",
+      "title": "Data Structures - Chapter 1",
+      "subject": "Data Structures",
+      "description": "Introduction to arrays and linked lists",
+      "fileUrl": "/materials/ds-chapter1.pdf",
+      "uploadDate": "2024-01-15"
+    },
+    {
+      "id": "note002",
+      "studentId": "1000001",
+      "title": "Database Concepts",
+      "subject": "Database Systems",
+      "description": "SQL queries and normalization",
+      "fileUrl": "/materials/db-concepts.pdf",
+      "uploadDate": "2024-01-14"
+    },
+    {
+      "id": "note003",
+      "studentId": "1000001",
+      "title": "HTML & CSS Basics",
+      "subject": "Web Development",
+      "description": "Frontend fundamentals and responsive design",
+      "fileUrl": "/materials/web-basics.pdf",
+      "uploadDate": "2024-01-13"
+    }
+  ],
+  "circulars": [
+    {
+      "id": "circ001",
+      "title": "Important: Fee Submission Deadline",
+      "content": "Please submit your semester fees by January 31, 2024. Late submissions will attract a penalty of ₹500.",
+      "date": "2024-01-15",
+      "issuedDate": "2024-01-15"
+    },
+    {
+      "id": "circ002",
+      "title": "Mid-Semester Exam Schedule",
+      "content": "Mid-semester exams will be held from January 20 to January 25, 2024. Check the portal for detailed timetable.",
+      "date": "2024-01-14",
+      "issuedDate": "2024-01-14"
+    },
+    {
+      "id": "circ003",
+      "title": "Campus Maintenance Notice",
+      "content": "The computer lab will be closed for maintenance on January 17-18, 2024.",
+      "date": "2024-01-13",
+      "issuedDate": "2024-01-13"
+    }
+  ],
+  "fees": [
+    {
+      "id": "fee001",
+      "studentId": "1000001",
+      "description": "Tuition Fee - Semester 4",
+      "amount": 50000,
+      "dueDate": "2024-01-31",
+      "status": "pending"
+    },
+    {
+      "id": "fee002",
+      "studentId": "1000001",
+      "description": "Hostel Fee - January",
+      "amount": 5000,
+      "dueDate": "2024-01-05",
+      "status": "paid",
+      "paidDate": "2024-01-03"
+    },
+    {
+      "id": "fee003",
+      "studentId": "1000001",
+      "description": "Library Fee - Annual",
+      "amount": 500,
+      "dueDate": "2024-02-15",
+      "status": "pending"
+    },
+    {
+      "id": "fee004",
+      "studentId": "1000001",
+      "description": "Lab Practicals Fee",
+      "amount": 2000,
+      "dueDate": "2024-01-20",
+      "status": "pending"
+    }
+  ]
+}
