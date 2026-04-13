@@ -9,7 +9,8 @@ frontend/.env.local
 frontend/.env.*.local
 frontend/dist-ssr
 frontend/*.local
-
+frontend/package-lock.json
+frontend/package.json
 
 # Sensitive / credentials
 backend.pem
